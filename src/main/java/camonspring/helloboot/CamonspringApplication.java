@@ -24,24 +24,7 @@ public class CamonspringApplication {
   }
 
   public static void main(String[] args) {
-    AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
-      @Override
-      protected void onRefresh() {
-        super.onRefresh();
-
-        ServletWebServerFactory serverFactory = this.getBean(ServletWebServerFactory.class);
-        DispatcherServlet dispatcherServlet = this.getBean(DispatcherServlet.class);
-        dispatcherServlet.setApplicationContext(this); // 생략해도 spring container가 주입해준다.
-
-        WebServer webServer = serverFactory.getWebServer(servletContext -> {
-          servletContext.addServlet("dispatcherServlet", dispatcherServlet)
-              .addMapping("/*"); // 모든 요청을 받아서 처리한다.
-        });
-        webServer.start();
-      }
-    };
-    applicationContext.register(CamonspringApplication.class);
-    applicationContext.refresh();
+    MySpringApplication.run(CamonspringApplication.class, args);
   }
 
 }
