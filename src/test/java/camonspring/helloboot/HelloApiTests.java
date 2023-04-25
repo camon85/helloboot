@@ -1,6 +1,5 @@
 package camonspring.helloboot;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
@@ -8,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class HelloApiTests {
   @Test
@@ -28,6 +27,17 @@ public class HelloApiTests {
 
     // body Hello camon
     assertThat(responseEntity.getBody()).isEqualTo("Hello camon");
+  }
+  @Test
+  void failHelloApi() {
+    TestRestTemplate testRestTemplate = new TestRestTemplate();
+    ResponseEntity<String> responseEntity = testRestTemplate.getForEntity(
+        "http://localhost:8080/hello?name={name}", String.class, "");
 
+    assertThat(responseEntity.getStatusCode())
+        .isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+//    assertThat(responseEntity.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE))
+//        .startsWith(MediaType.TEXT_PLAIN_VALUE);
+//    assertThat(responseEntity.getBody()).isEqualTo("Hello camon");
   }
 }
