@@ -26,7 +26,7 @@ public class HelloApiTests {
         .startsWith(MediaType.TEXT_PLAIN_VALUE);
 
     // body Hello camon
-    assertThat(responseEntity.getBody()).isEqualTo("Hello camon");
+    assertThat(responseEntity.getBody()).isEqualTo("*Hello camon*");
   }
   @Test
   void failHelloApi() {
