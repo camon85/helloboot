@@ -2,7 +2,7 @@ package camonspring.helloboot;
 
 import org.springframework.boot.SpringApplication;
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 public class CamonspringApplication {
 
   public static void main(String[] args) {
