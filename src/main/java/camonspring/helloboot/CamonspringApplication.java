@@ -1,5 +1,6 @@
 package camonspring.helloboot;
 
+import camonspring.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
 @MySpringBootApplication
