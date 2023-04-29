@@ -2,7 +2,7 @@ package camonspring.config.autoconfig;
 
 import camonspring.config.MyConfigurationProperties;
 
-@MyConfigurationProperties
+@MyConfigurationProperties(prefix ="server")
 public class ServerProperties {
 
   private String contextPath;

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.Environment;
 
+import java.util.Map;
+
 @MyAutoConfiguration
 public class PropertyPostProcessorConfig {
   @Bean
@@ -20,7 +22,10 @@ public class PropertyPostProcessorConfig {
         if (annotation == null) {
           return bean;
         }
-        return Binder.get(env).bindOrCreate("", bean.getClass());
+
+        Map<String, Object> annotationAttributes = AnnotationUtils.getAnnotationAttributes(annotation);
+        String prefix = (String) annotationAttributes.get("prefix");
+        return Binder.get(env).bindOrCreate(prefix, bean.getClass());
       }
     };
   }
