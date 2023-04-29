@@ -1,6 +1,8 @@
 package camonspring.config.autoconfig;
 
+import camonspring.config.MyConfigurationProperties;
 
+@MyConfigurationProperties
 public class ServerProperties {
 
   private String contextPath;
