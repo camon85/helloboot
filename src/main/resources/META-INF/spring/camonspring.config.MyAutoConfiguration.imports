@@ -1,6 +1,0 @@
-camonspring.config.autoconfig.DispatcherServletConfig
-camonspring.config.autoconfig.TomcatWebServerConfig
-camonspring.config.autoconfig.JettyWebServerConfig
-camonspring.config.autoconfig.PropertyPlaceholderConfig
-camonspring.config.autoconfig.PropertyPostProcessorConfig
-camonspring.config.autoconfig.DataSourceConfig

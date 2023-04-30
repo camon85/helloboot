@@ -1,17 +1,17 @@
 package camonspring.helloboot;
 
-import camonspring.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.PostConstruct;
 
-@MySpringBootApplication
-public class CamonspringApplication {
+@SpringBootApplication
+public class CamonSpringApplication {
 
   private final JdbcTemplate jdbcTemplate;
 
-  public CamonspringApplication(JdbcTemplate jdbcTemplate) {
+  public CamonSpringApplication(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }
 
@@ -21,7 +21,7 @@ public class CamonspringApplication {
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(CamonspringApplication.class, args);
+    SpringApplication.run(CamonSpringApplication.class, args);
   }
 
 }
